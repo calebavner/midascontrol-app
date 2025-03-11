@@ -11,4 +11,5 @@ btnLogin.addEventListener('click', (event) => {
     }
 
     console.log(login)
+    window.location.href = "/dashboard/dashboard.html";
 })

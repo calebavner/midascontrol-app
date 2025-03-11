@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "midas-control",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}
