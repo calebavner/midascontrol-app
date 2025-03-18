@@ -29,6 +29,7 @@ h1 {
     grid-area: header;
     padding: 1.25rem;
     background-color: #fff;
+    border-radius: 0.5rem;
 }
 
 .dashboard-sidebar {

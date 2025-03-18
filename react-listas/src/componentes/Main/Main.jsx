@@ -2,13 +2,16 @@ import React from 'react'
 import Card from '../Card/Card'
 import './Main.css'
 import Tabela from '../Tabela/Tabela'
+import Kpi from '../Kpi/Kpi'
 
 const Main = () => {
   return (
     <main className='main'>
 
       <div className='secao-kpis'>
-        <Card title="Previsão"/>
+        <Card title="Previsão">
+          <Kpi />
+        </Card>
         <Card title="Faturado"/>
         <Card title="Margem"/>
         <Card title="Comissão"/>
