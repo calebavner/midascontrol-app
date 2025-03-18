@@ -1,0 +1,20 @@
+* {    
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: #b0b0b0;
+}
+
+.container {
+    background-color: #121212;
+    font-family: system-ui;
+    line-height: 1.7;
+    display: grid;
+    min-block-size: 100vh;
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+        'sidebar header'
+        'sidebar main'
+        'sidebar main';
+}

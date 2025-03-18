@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, sans-serif;
+}
+
+body {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #333;
+    background-color: #f3f3f3;
+    min-block-size: 100vh;
+    display: grid;
+    grid-template-columns: 5rem 1fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        'sidebar header'
+        'sidebar main'
+        'sidebar main';
+}
+
+h1 {
+    font-size: 2.25rem;
+    line-height: 1.25;
+}
+
+.dashboard-header {
+    grid-area: header;
+    padding: 1.25rem;
+    background-color: #fff;
+}
+
+.dashboard-sidebar {
+    grid-area: sidebar;
+    background-color: #1d1d29;
+    color: #fff;
+}
+
+.dashboard-main {
+    grid-area: main;
+    padding: 1.25rem;
+    display: grid;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 3rem;
+    line-height: 1.3;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    padding: 1rem;
+    background-color: #fff;
+    border-radius: 0.5rem;
+}
+
+@media (width >=768px) {
+    .dashboard-main {
+        grid-template-rows: 20vh auto;
+    }
+
+    .section-values {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;
+    }
+
+    .section-tables {
+        display: grid;
+        grid-template-columns: 70vw auto;
+        gap: 1rem;
+    }
+}
+
+.tabela {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    table-layout: fixed;
+}
+
+.tabela th,
+.tabela td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #1d2929;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tabela th {
+    font-weight: bold;
+    color: #1d2929;
+}
+
+.tabela td img {
+    height: 20px;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 0;
+    cursor: pointer;
+    margin: 0 5px;
+}

@@ -1,0 +1,24 @@
+.main {
+    grid-area: main;
+    padding: .75rem;
+    gap: 1rem;
+    display: grid;
+}
+
+@media(width >= 768px) {
+    .main {
+        grid-template-rows: 20vh auto;
+    }
+    
+    .secao-kpis {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1rem;    
+    }
+
+    .secao-tabelas {
+        display: grid;
+        grid-template-columns: 70vw auto;
+        gap: 1rem;    
+    }
+}
