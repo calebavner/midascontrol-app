@@ -3,6 +3,7 @@ package app.controller;
 import app.domain.Registro;
 import app.domain.dto.RegistroCadastroDto;
 import app.domain.dto.TotalResponseDto;
+import app.domain.enums.Status;
 import app.service.RegistroService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,11 @@ public class RegistroController {
         return ResponseEntity.ok(registroService.listarRegistros());
     }
 
+    @GetMapping("/status")
+    public ResponseEntity<List<Registro>> listarRegistrosPorStatus(@RequestParam Status status) {
+        return ResponseEntity.ok(registroService.listarRegistrosPorStatus(status));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<Registro> buscarRegistroPorId(@PathVariable Long id) {
         return ResponseEntity.ok(registroService.buscarRegistroPorId(id));
@@ -45,8 +51,19 @@ public class RegistroController {
         return ResponseEntity.noContent().build();
     }
 
-    @GetMapping("/total")
+    @GetMapping("/total/expectado")
     public ResponseEntity<TotalResponseDto> retornaTotalExpectado() {
         return ResponseEntity.ok(registroService.retornaTotalExpectado());
+    }
+
+    @GetMapping("/total/faturado")
+    public ResponseEntity<TotalResponseDto> retornaTotalFaturado() {
+        return ResponseEntity.ok(registroService.retornaTotalFaturado());
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Registro> faturarRegistro(@PathVariable Long id) {
+        registroService.faturarRegistro(id);
+        return ResponseEntity.ok().build();
     }
 }

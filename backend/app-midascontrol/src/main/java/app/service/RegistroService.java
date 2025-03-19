@@ -6,6 +6,7 @@ import app.domain.dto.TotalResponseDto;
 import app.domain.enums.Status;
 import app.repos.RegistroRepository;
 import jakarta.persistence.EntityNotFoundException;
+import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.BeanUtils;
@@ -26,6 +27,11 @@ public class RegistroService {
     public List<Registro> listarRegistros() {
         LOGGER.info("Executanto listagem de registros: " + getClass());
         return registroRepository.findAll();
+    }
+
+    public List<Registro> listarRegistrosPorStatus(Status status) {
+        LOGGER.info("Executanto listagem de registros por Status de faturamento: " + getClass());
+        return registroRepository.findByStatus(status);
     }
 
     public Registro buscarRegistroPorId(Long id) {
@@ -49,14 +55,26 @@ public class RegistroService {
 
     public TotalResponseDto retornaTotalExpectado() {
 
-        List<Registro> registros = listarRegistros();
+        List<Registro> registrosPendentes = listarRegistrosPorStatus(Status.PENDENTE);
 
-        /*return registros.stream()
-                .map(Registro::getValor)
-                .reduce(0D, Double::sum);*/
-
-        return new TotalResponseDto(registros.stream()
+        return new TotalResponseDto(registrosPendentes.stream()
                 .map(Registro::getValor)
                 .reduce(0D, Double::sum));
+    }
+
+    public TotalResponseDto retornaTotalFaturado() {
+        List<Registro> registrosFaturados = listarRegistrosPorStatus(Status.FATURADO);
+
+        return new TotalResponseDto(registrosFaturados.stream()
+                .map(Registro::getValor)
+                .reduce(0D, Double::sum));
+    }
+
+    @Transactional
+    public void faturarRegistro(Long id) {
+        Registro registro = buscarRegistroPorId(id);
+        registro.setStatus(Status.FATURADO);
+        LOGGER.info("Status do Registro alterado para: " + registro.getStatus());
+        registroRepository.save(registro);
     }
 }

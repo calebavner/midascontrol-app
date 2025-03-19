@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './Kpi.css'
 
 const Kpi = () => {
 
@@ -8,7 +9,7 @@ const Kpi = () => {
   useEffect(() => {
     const buscarDados = async () => {
       try {
-        const resposta = await fetch("http://localhost:8080/registros/total");
+        const resposta = await fetch("http://localhost:8080/registros/total/expectado");
         if(!resposta.ok) {
           throw new Error("Não foi possivel recuperar os dados")
         }
@@ -27,7 +28,7 @@ const Kpi = () => {
 
   return (
     <div>
-      <h2>R$ {dados.totalExpectado}</h2>
+      <h2 className='kpi-value'>R$ {dados.totalExpectado}</h2>
     </div>
   )
 }

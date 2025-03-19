@@ -1,0 +1,15 @@
+meta {
+  name: registros - listar_por_status
+  type: http
+  seq: 4
+}
+
+get {
+  url: http://localhost:8080/registros/status?status=PENDENTE
+  body: none
+  auth: none
+}
+
+params:query {
+  status: PENDENTE
+}

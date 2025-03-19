@@ -13,6 +13,8 @@ public class Registro {
     private String cliente;
     private Double valor;
     private Double margem;
+
+    @Enumerated(EnumType.STRING)
     private Status status;
 
     public Long getId() {
