@@ -9,7 +9,7 @@ const Kpi = () => {
   useEffect(() => {
     const buscarDados = async () => {
       try {
-        const resposta = await fetch("http://localhost:8080/registros/total/expectado");
+        const resposta = await fetch("http://localhost:8080/registros/total/faturado");
         if(!resposta.ok) {
           throw new Error("Não foi possivel recuperar os dados")
         }
@@ -28,7 +28,7 @@ const Kpi = () => {
 
   return (
     <div>
-      <h2 className='kpi-value'>R$ {dados.totalExpectado}</h2>
+      <h2 className='kpi-value'>R$ {dados.total}</h2>
     </div>
   )
 }

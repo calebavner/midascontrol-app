@@ -40,6 +40,7 @@ public class RegistroService {
                 .orElseThrow(EntityNotFoundException::new);
     }
 
+    @Transactional
     public Registro cadastrarRegistro(RegistroCadastroDto dto) {
         LOGGER.info("Executando cadastro de novo registro: " + getClass());
         Registro novoRegistro = new Registro();
@@ -48,6 +49,7 @@ public class RegistroService {
         return registroRepository.save(novoRegistro);
     }
 
+    @Transactional
     public void deletarRegistro(Long id) {
         LOGGER.info("Executanto deleção de registro: " + getClass());
         registroRepository.deleteById(id);
