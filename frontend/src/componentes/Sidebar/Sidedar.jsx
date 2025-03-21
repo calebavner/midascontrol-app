@@ -5,7 +5,7 @@ import logo from '../../assets/react.svg'
 const Sidedar = () => {
   return (
     <aside className='sidebar'>
-      <img src={logo} alt="Logo do React" />    
+      <img src={logo} alt="Logo do React" />  
     </aside>
   )
 }

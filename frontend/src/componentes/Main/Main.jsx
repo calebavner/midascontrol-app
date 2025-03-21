@@ -10,11 +10,13 @@ const Main = () => {
 
       <div className='secao-kpis'>
         <Card title="Previsão">
-          <Kpi />
+          <Kpi kpi="expectado"/>
         </Card>
-        <Card title="Faturado"/>
-        <Card title="Margem"/>
-        <Card title="Comissão"/>
+        <Card title="Faturado">
+          <Kpi kpi="faturado"/>
+        </Card>
+        <Card title="Margem"></Card>
+        <Card title="Comissão"></Card>
       </div>
 
       <div className="secao-tabelas">
