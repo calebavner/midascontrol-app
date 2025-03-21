@@ -15,7 +15,9 @@ const Main = () => {
         <Card title="Faturado">
           <Kpi kpi="faturado"/>
         </Card>
-        <Card title="Margem"></Card>
+        <Card title="Margem">
+          <Kpi kpi="margem"/>
+        </Card>
         <Card title="Comissão"></Card>
       </div>
 

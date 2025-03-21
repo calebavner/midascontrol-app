@@ -72,6 +72,18 @@ public class RegistroService {
                 .reduce(0D, Double::sum));
     }
 
+    public TotalResponseDto retornaMargemTotal() {
+
+        Double totalFaturado = retornaTotalFaturado().total();
+        Double totalMargem = listarRegistrosPorStatus(Status.FATURADO)
+                .stream()
+                .map(x -> x.getValor() * x.getMargem())
+                .reduce(0D, Double::sum);
+
+        Double numeroArredondado = Math.round((totalMargem / totalFaturado) * 100) /100.0;
+        return new TotalResponseDto(numeroArredondado);
+    }
+
     @Transactional
     public void faturarRegistro(Long id) {
         Registro registro = buscarRegistroPorId(id);

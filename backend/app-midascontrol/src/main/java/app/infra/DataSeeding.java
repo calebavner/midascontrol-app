@@ -29,7 +29,7 @@ public class DataSeeding implements CommandLineRunner {
         novoRegistro.setCliente("Bridgestone");
         novoRegistro.setValor(19800D);
         novoRegistro.setStatus(Status.FATURADO);
-        novoRegistro.setMargem(58.99D);
+        novoRegistro.setMargem(59.88D);
 
         registroRepository.save(novoRegistro);
         usuarioRepository.save(novoUsuario);
