@@ -80,7 +80,7 @@ public class RegistroService {
                 .map(x -> x.getValor() * x.getMargem())
                 .reduce(0D, Double::sum);
 
-        Double numeroArredondado = Math.round((totalMargem / totalFaturado) * 100) /100.0;
+        Double numeroArredondado = Math.round((totalMargem / totalFaturado) * 100) / 100.0;
         return new TotalResponseDto(numeroArredondado);
     }
 

@@ -1,10 +1,15 @@
 import React from 'react'
 import './Icone.css'
 
-const Icone = () => {
+const Icone = ({icone, bg}) => {
+  
+  const estilo = {
+    background: bg || '#9b59b6'
+  };
+
   return (
-    <div className='container'>
-      
+    <div className='icone-container' style={estilo}>
+      {icone}  
     </div>
   )
 }

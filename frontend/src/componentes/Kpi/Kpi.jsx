@@ -22,9 +22,7 @@ const Kpi = ({kpi}) => {
     buscarDados();
   }, []);
 
-  if (erro) {
-    return <p>Erro: {erro}</p>;
-  }
+  
 
   return (
     <div>
