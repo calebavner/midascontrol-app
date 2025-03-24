@@ -26,7 +26,7 @@ const Kpi = ({kpi}) => {
 
   return (
     <div>
-      <h2 className='kpi-value'>{dados.total}</h2>
+      <p className='kpi-value'>{dados.total}</p>
     </div>
   )
 }

@@ -23,7 +23,7 @@ const Main = () => {
         </CardKpi>
 
         <CardKpi icone="fa-solid fa-sack-dollar" bgColor='#9b59b6' title="Comissão">          
-          <Kpi kpi="expectado"/>
+          
         </CardKpi>
       </div>
 

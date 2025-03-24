@@ -91,4 +91,10 @@ public class RegistroService {
         LOGGER.info("Status do Registro alterado para: " + registro.getStatus());
         registroRepository.save(registro);
     }
+
+    private Double getMargemDeComissao() {
+        Double margemGeral = Double.parseDouble(retornaMargemTotal().toString());
+
+        return null;
+    }
 }
