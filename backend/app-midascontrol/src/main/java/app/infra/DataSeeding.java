@@ -8,6 +8,8 @@ import app.repos.UsuarioRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.List;
+
 @Configuration
 public class DataSeeding implements CommandLineRunner {
 
@@ -25,13 +27,19 @@ public class DataSeeding implements CommandLineRunner {
         novoUsuario.setEmail("admin@email.com");
         novoUsuario.setPassword("admin");
 
-        Registro novoRegistro = new Registro();
-        novoRegistro.setCliente("Bridgestone");
-        novoRegistro.setValor(19800D);
-        novoRegistro.setStatus(Status.FATURADO);
-        novoRegistro.setMargem(59.88D);
+        Registro novoRegistroFaturado = new Registro();
+        novoRegistroFaturado.setCliente("Bridgestone");
+        novoRegistroFaturado.setValor(19800D);
+        novoRegistroFaturado.setStatus(Status.PENDENTE);
+        novoRegistroFaturado.setMargem(59.88D);
 
-        registroRepository.save(novoRegistro);
+        Registro novoRegistroPendente = new Registro();
+        novoRegistroPendente.setCliente("Algetec");
+        novoRegistroPendente.setValor(1275.17D);
+        novoRegistroPendente.setStatus(Status.FATURADO);
+        novoRegistroPendente.setMargem(24D);
+
+        registroRepository.saveAll(List.of(novoRegistroFaturado, novoRegistroPendente));
         usuarioRepository.save(novoUsuario);
     }
 }

@@ -66,6 +66,11 @@ public class RegistroController {
         return ResponseEntity.ok(registroService.retornaMargemTotal());
     }
 
+    @GetMapping("/total/comissao")
+    public ResponseEntity<TotalResponseDto> retornaValorComissao() {
+        return ResponseEntity.ok(registroService.retornaTotalComissao());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Registro> faturarRegistro(@PathVariable Long id) {
         registroService.faturarRegistro(id);

@@ -84,6 +84,11 @@ public class RegistroService {
         return new TotalResponseDto(numeroArredondado);
     }
 
+    public TotalResponseDto retornaTotalComissao() {
+        Double comissao = Math.round((retornaTotalFaturado().total() * getMargemDeComissao())) / 100D;
+        return new TotalResponseDto(comissao);
+    }
+
     @Transactional
     public void faturarRegistro(Long id) {
         Registro registro = buscarRegistroPorId(id);
@@ -93,8 +98,19 @@ public class RegistroService {
     }
 
     private Double getMargemDeComissao() {
-        Double margemGeral = Double.parseDouble(retornaMargemTotal().toString());
 
-        return null;
+        Double margemTotal = retornaMargemTotal().total();
+
+        return switch (margemTotal) {
+            case Double n when n <= 10  -> 0.5D;
+            case Double n when n <= 15  -> 0.7D;
+            case Double n when n <= 20  -> 0.9D;
+            case Double n when n <= 25  -> 1.5D;
+            case Double n when n <= 30  -> 2D;
+            case Double n when n <= 35  -> 2.25D;
+            case Double n when n <= 40  -> 2.5D;
+            case Double n when n > 45  -> 3D;
+            default -> 5D;
+        };
     }
 }

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import './Tabela.css'
 
-const Tabela = ({status}) => {
+const TabelaFaturados = ({status}) => {
   // Estado para armazenar os dados da API
   const [dados, setDados] = useState([]);
   // Estado para controlar o carregamento
@@ -45,21 +45,17 @@ const Tabela = ({status}) => {
       <table className="tabela">
         <thead>
           <tr>
-            <th>ID</th>
             <th>Cliente</th>
             <th>Valor</th>
             <th>Margem</th>
-            <th>Status</th>
           </tr>
         </thead>
         <tbody>
           {dados.map((item) => (
             <tr key={item.id}>
-              <td>{item.id}</td>
               <td>{item.cliente}</td>
               <td>R${item.valor}</td>
               <td>{item.margem}%</td>
-              <td><a href="#">{item.status}</a></td>
             </tr>
           ))}
         </tbody>
@@ -68,4 +64,4 @@ const Tabela = ({status}) => {
   );
 };
 
-export default Tabela;
+export default TabelaFaturados;

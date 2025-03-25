@@ -4,6 +4,7 @@ import Tabela from '../Tabela/Tabela'
 import Kpi from '../Kpi/Kpi'
 import CardKpi from '../CardKpi/CardKpi'
 import CardTabela from '../CardTabela/CardTabela'
+import TabelaFaturados from '../Tabela/TabelaFaturados'
 
 const Main = () => {
   return (
@@ -23,16 +24,18 @@ const Main = () => {
         </CardKpi>
 
         <CardKpi icone="fa-solid fa-sack-dollar" bgColor='#9b59b6' title="Comissão">          
-          
+          <Kpi kpi="comissao"/>  
         </CardKpi>
       </div>
 
       <div className="secao-tabelas">
         <CardTabela title="Previsão de Faturamento">
-          <Tabela />
+          <Tabela status="PENDENTE"/>
         </CardTabela>
 
-        <CardTabela title="Faturado"/>
+        <CardTabela title="Faturado">
+          <TabelaFaturados status="FATURADO"/>
+        </CardTabela>
       </div>
       
     </main>
