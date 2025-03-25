@@ -33,7 +33,7 @@ const Main = () => {
           <Tabela status="PENDENTE"/>
         </CardTabela>
 
-        <CardTabela title="Faturado">
+        <CardTabela title="Faturado" >
           <TabelaFaturados status="FATURADO"/>
         </CardTabela>
       </div>
