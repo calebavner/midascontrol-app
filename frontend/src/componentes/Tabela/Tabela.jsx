@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import './Tabela.css'
+import Modal from "../Modal/Modal";
 
-const Tabela = ({status}) => {
+const Tabela = ({ status }) => {
   // Estado para armazenar os dados da API
   const [dados, setDados] = useState([]);
   // Estado para controlar o carregamento
@@ -41,7 +42,6 @@ const Tabela = ({status}) => {
   // Renderiza a tabela de dados
   return (
     <div>
-      <p>Março/2025</p>
       <table className="tabela">
         <thead>
           <tr>
@@ -50,6 +50,7 @@ const Tabela = ({status}) => {
             <th>Valor</th>
             <th>Margem</th>
             <th>Status</th>
+            <th>Ações</th>
           </tr>
         </thead>
         <tbody>
@@ -60,10 +61,17 @@ const Tabela = ({status}) => {
               <td>R${item.valor}</td>
               <td>{item.margem}%</td>
               <td><a href="#">{item.status}</a></td>
+              <td className="container-btn">
+                <button type="button" class="btn btn-success btn-sm">Faturar</button>
+                <button type="button" class="btn btn-danger btn-sm">Excluir</button>
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <div className="container-modal">
+        <Modal />
+      </div>
     </div>
   );
 };

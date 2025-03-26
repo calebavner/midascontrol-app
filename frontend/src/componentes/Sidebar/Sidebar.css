@@ -4,3 +4,39 @@
     color: #fff;
     padding: 1.25rem;
 }
+
+aside {
+    width: var(--sb-width);
+}
+
+nav {
+    height: 100%;
+}
+
+nav ul {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-flow: column;
+    gap: 0.25rem;
+}
+
+nav li:last-child {
+    margin-top: auto;
+}
+
+nav a {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 0.625rem 0.875rem;
+    font-size: 1.25rem;
+    line-height: 1;
+    text-decoration: none;
+}
+
+nav a span {
+    font-size: 0.875rem;
+    opacity: 0;
+    visibility: hidden;
+}

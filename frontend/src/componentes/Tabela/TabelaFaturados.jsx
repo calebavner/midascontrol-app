@@ -41,7 +41,6 @@ const TabelaFaturados = ({status}) => {
   // Renderiza a tabela de dados
   return (
     <div>
-      <p>Março/2025</p>
       <table className="tabela">
         <thead>
           <tr>

@@ -3,3 +3,9 @@
     background-color: #1E1E1E;
     border-radius: 0.5rem;
 }
+
+.card-tabela-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}

@@ -31,7 +31,7 @@ public class DataSeeding implements CommandLineRunner {
         novoRegistroFaturado.setCliente("Bridgestone");
         novoRegistroFaturado.setValor(19800D);
         novoRegistroFaturado.setStatus(Status.PENDENTE);
-        novoRegistroFaturado.setMargem(59.88D);
+        novoRegistroFaturado.setMargem(79.07D);
 
         Registro novoRegistroPendente = new Registro();
         novoRegistroPendente.setCliente("Algetec");

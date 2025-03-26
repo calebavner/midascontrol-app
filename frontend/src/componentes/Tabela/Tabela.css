@@ -23,3 +23,15 @@
 .tabela a {
     text-decoration: none;
 }
+
+.container-modal {
+    display: flex;
+    flex-direction: row;
+}
+
+.container-btn {
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
